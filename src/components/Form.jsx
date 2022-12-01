@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import '../style/Form.css';
 
 export class Form extends Component {
   render() {
