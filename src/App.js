@@ -6,7 +6,20 @@ class App extends React.Component {
     return (
       <div>
         <h1>Tryunfo</h1>
-        <Forms />
+        <Forms
+          cardName="pedro"
+          cardDescription=""
+          cardAttr1=""
+          cardAttr2=""
+          cardAttr3=""
+          cardImage=""
+          cardRare=""
+          cardTrunfo=""
+          hasTrunfo=""
+          isSaveButtonDisabled=""
+          onInputChange=""
+          onSaveButtonClick=""
+        />
       </div>
     );
   }
