@@ -13,7 +13,6 @@ export class Form extends Component {
       cardImage,
       cardRare,
       cardTrunfo,
-      hasTrunfo,
       isSaveButtonDisabled,
       onInputChange,
       onSaveButtonClick,
@@ -25,7 +24,7 @@ export class Form extends Component {
             <input
               type="text"
               data-testid="name-input"
-              name="name"
+              name="cardName"
               id="name"
               value={ cardName }
               onChange={ onInputChange }
@@ -35,7 +34,7 @@ export class Form extends Component {
           <label htmlFor="textarea">
             <textarea
               data-testid="description-input"
-              name="textarea"
+              name="cardDescription"
               value={ cardDescription }
               onChange={ onInputChange }
             />
@@ -45,7 +44,7 @@ export class Form extends Component {
             <input
               type="number"
               data-testid="attr1-input"
-              name="atributo1"
+              name="cardAttr1"
               value={ cardAttr1 }
               onChange={ onInputChange }
             />
@@ -55,7 +54,7 @@ export class Form extends Component {
             <input
               type="number"
               data-testid="attr2-input"
-              name="atributo2"
+              name="cardAttr2"
               value={ cardAttr2 }
               onChange={ onInputChange }
             />
@@ -65,7 +64,7 @@ export class Form extends Component {
             <input
               type="number"
               data-testid="attr3-input"
-              name="atributo3"
+              name="cardAttr3"
               value={ cardAttr3 }
               onChange={ onInputChange }
             />
@@ -75,7 +74,7 @@ export class Form extends Component {
             <input
               type="text"
               data-testid="image-input"
-              name="imagem"
+              name="cardImage"
               value={ cardImage }
               onChange={ onInputChange }
             />
@@ -84,7 +83,7 @@ export class Form extends Component {
           <label htmlFor="select">
             <select
               data-testid="rare-input"
-              name="select"
+              name="cardRare"
               value={ cardRare }
               onChange={ onInputChange }
             >
@@ -98,7 +97,7 @@ export class Form extends Component {
             <input
               type="checkbox"
               data-testid="trunfo-input"
-              name="checkbox"
+              name="cardTrunfo"
               checked={ cardTrunfo }
               onChange={ onInputChange }
             />
@@ -106,6 +105,7 @@ export class Form extends Component {
           <button
             type="submit"
             data-testid="save-button"
+            name="isSaveButtonDisable"
             disabled={ isSaveButtonDisabled }
             onClick={ onSaveButtonClick }
           >
@@ -126,7 +126,6 @@ Form.defaultProps = {
   cardImage: PropTypes.string,
   cardRare: PropTypes.string,
   cardTrunfo: PropTypes.bool,
-  hasTrunfo: PropTypes.bool,
   isSaveButtonDisabled: PropTypes.bool,
   onInputChange: PropTypes.func,
   onSaveButtonClick: PropTypes.func,
@@ -141,7 +140,6 @@ Form.propTypes = {
   cardImage: PropTypes.string,
   cardRare: PropTypes.string,
   cardTrunfo: PropTypes.bool,
-  hasTrunfo: PropTypes.bool,
   isSaveButtonDisabled: PropTypes.bool,
   onInputChange: PropTypes.func,
   onSaveButtonClick: PropTypes.func,
