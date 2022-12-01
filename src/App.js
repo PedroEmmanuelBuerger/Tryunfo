@@ -1,5 +1,6 @@
 import React from 'react';
 import Forms from './components/Form';
+import Cardx from './components/Card';
 
 class App extends React.Component {
   render() {
@@ -7,6 +8,20 @@ class App extends React.Component {
       <div>
         <h1>Tryunfo</h1>
         <Forms
+          cardName
+          cardDescription
+          cardAttr1
+          cardAttr2
+          cardAttr3
+          cardImage
+          cardRare
+          cardTrunfo
+          hasTrunfo
+          isSaveButtonDisabled
+          onInputChange
+          onSaveButtonClick
+        />
+        <Cardx
           cardName
           cardDescription
           cardAttr1

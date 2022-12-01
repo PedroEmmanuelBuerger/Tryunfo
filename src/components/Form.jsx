@@ -33,8 +33,7 @@ export class Form extends Component {
           </label>
 
           <label htmlFor="textarea">
-            <input
-              type="textarea"
+            <textarea
               data-testid="description-input"
               name="textarea"
               value={ cardDescription }
@@ -104,16 +103,14 @@ export class Form extends Component {
               onChange={ onInputChange }
             />
           </label>
-
-          <label htmlFor="button">
-            <input
-              type="button"
-              data-testid="save-button"
-              name="button"
-              disabled={ isSaveButtonDisabled }
-              onClick={ onSaveButtonClick }
-            />
-          </label>
+          <button
+            type="submit"
+            data-testid="save-button"
+            disabled={ isSaveButtonDisabled }
+            onClick={ onSaveButtonClick }
+          >
+            Salvar
+          </button>
         </form>
       </div>
     );
