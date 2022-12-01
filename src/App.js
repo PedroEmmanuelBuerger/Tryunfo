@@ -7,18 +7,18 @@ class App extends React.Component {
       <div>
         <h1>Tryunfo</h1>
         <Forms
-          cardName="pedro"
-          cardDescription=""
-          cardAttr1=""
-          cardAttr2=""
-          cardAttr3=""
-          cardImage=""
-          cardRare=""
-          cardTrunfo=""
-          hasTrunfo=""
-          isSaveButtonDisabled=""
-          onInputChange=""
-          onSaveButtonClick=""
+          cardName
+          cardDescription
+          cardAttr1
+          cardAttr2
+          cardAttr3
+          cardImage
+          cardRare
+          cardTrunfo
+          hasTrunfo
+          isSaveButtonDisabled
+          onInputChange
+          onSaveButtonClick
         />
       </div>
     );
