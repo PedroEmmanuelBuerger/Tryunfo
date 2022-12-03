@@ -132,7 +132,7 @@ Form.defaultProps = {
   isSaveButtonDisabled: PropTypes.bool,
   onInputChange: PropTypes.func,
   onSaveButtonClick: PropTypes.func,
-  hasTrunfo: propTypes.bool,
+  hasTrunfo: PropTypes.bool,
 };
 
 Form.propTypes = {
@@ -147,6 +147,6 @@ Form.propTypes = {
   isSaveButtonDisabled: PropTypes.bool,
   onInputChange: PropTypes.func,
   onSaveButtonClick: PropTypes.func,
-  hasTrunfo: propTypes.bool,
+  hasTrunfo: PropTypes.bool,
 };
 export default Form;
