@@ -1,20 +1,21 @@
 import React from 'react';
 import Forms from './components/Form';
 import Cardx from './components/Card';
+import CreateSavedCards from './components/CreateSavedCards';
 
 class App extends React.Component {
   state = {
     cardName: '',
     cardDescription: '',
-    cardAttr1: '',
-    cardAttr2: '',
-    cardAttr3: '',
+    cardAttr1: '0',
+    cardAttr2: '0',
+    cardAttr3: '0',
     cardImage: '',
-    cardRare: '',
+    cardRare: 'normal',
     cardTrunfo: false,
     hasTrunfo: false,
     isSaveButtonDisabled: true,
-    savedCards: '',
+    savedCards: [],
   };
 
   validation = () => {
@@ -25,9 +26,9 @@ class App extends React.Component {
     const validatename = cardName.length > 0;
     const validadeImg = cardImage.length > 0;
     const validateDesc = cardDescription.length > 0;
-    const validateattr1 = cardAttr1 <= noventa && cardAttr1 >= 0;
-    const validateattr2 = cardAttr2 <= noventa && cardAttr2 >= 0;
-    const validateattr3 = cardAttr3 <= noventa && cardAttr3 >= 0;
+    const validateattr1 = Number(cardAttr1) <= noventa && Number(cardAttr1) >= 0;
+    const validateattr2 = Number(cardAttr2) <= noventa && Number(cardAttr2) >= 0;
+    const validateattr3 = Number(cardAttr3) <= noventa && Number(cardAttr3) >= 0;
     const value = Number(cardAttr1) + Number(cardAttr2) + Number(cardAttr3);
     const vaidateValue = value <= duzentosedez;
     const bool = (validatename && validadeImg && validateDesc
@@ -46,7 +47,12 @@ class App extends React.Component {
   onSaveButtonClick = (e) => {
     e.preventDefault();
     const { cardName, cardDescription, cardAttr1,
-      cardAttr2, cardAttr3, cardImage, cardRare, hasTrunfo } = this.state;
+      cardAttr2, cardAttr3, cardImage, cardRare, cardTrunfo } = this.state;
+    if (cardTrunfo) {
+      this.setState(({
+        hasTrunfo: true,
+      }));
+    }
     const newCard = { cardName,
       cardDescription,
       cardAttr1,
@@ -54,18 +60,17 @@ class App extends React.Component {
       cardAttr3,
       cardImage,
       cardRare,
-      hasTrunfo };
+      cardTrunfo };
     this.setState((prev) => ({
       savedCards: [...prev.savedCards, newCard],
       cardName: '',
       cardDescription: '',
-      cardAttr1: 0,
-      cardAttr2: 0,
-      cardAttr3: 0,
+      cardAttr1: '0',
+      cardAttr2: '0',
+      cardAttr3: '0',
       cardImage: '',
       cardRare: '',
       cardTrunfo: false,
-      hasTrunfo: true,
       isSaveButtonDisabled: true,
     }));
   };
@@ -73,7 +78,7 @@ class App extends React.Component {
   render() {
     const { cardName, cardDescription, cardAttr1, cardAttr2, cardAttr3, cardImage,
       cardRare, cardTrunfo, hasTrunfo,
-      isSaveButtonDisabled } = this.state;
+      isSaveButtonDisabled, savedCards } = this.state;
     return (
       <div>
         <h1>Tryunfo</h1>
@@ -100,11 +105,10 @@ class App extends React.Component {
           cardImage={ cardImage }
           cardRare={ cardRare }
           cardTrunfo={ cardTrunfo }
-          hasTrunfo={ hasTrunfo }
-          isSaveButtonDisabled={ isSaveButtonDisabled }
-          onInputChange={ this.onInputChange }
-          onSaveButtonClick={ this.onSaveButtonClick }
         />
+        <section>
+          <CreateSavedCards savedCards={ savedCards } />
+        </section>
       </div>
     );
   }
