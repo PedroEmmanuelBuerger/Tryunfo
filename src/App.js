@@ -79,10 +79,11 @@ class App extends React.Component {
     const { savedCards, hasTrunfo } = this.state;
     const { id } = target;
     const result = savedCards.filter((elements) => elements.cardName !== id);
+    const card = savedCards.filter((elements) => elements.cardName === id);
     this.setState(() => ({
       savedCards: result,
     }));
-    if (hasTrunfo) {
+    if (hasTrunfo && card[0].cardTrunfo === true) {
       this.setState(() => ({
         hasTrunfo: false,
       }));
