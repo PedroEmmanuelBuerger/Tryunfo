@@ -4,13 +4,13 @@ import Cardx from './Card';
 
 class CreateSavedCards extends React.Component {
   render() {
-    const { savedCards } = this.props;
+    const { savedCards, buttonDel } = this.props;
     return (
-      savedCards.map((element, index) => {
+      savedCards.map((element) => {
         const { cardAttr1, cardAttr2, cardAttr3, cardDescription,
           cardImage, cardName, cardRare, cardTrunfo } = element;
         const result = (
-          <section key={ index }>
+          <section key={ cardName }>
             <Cardx
               cardName={ cardName }
               cardDescription={ cardDescription }
@@ -21,7 +21,16 @@ class CreateSavedCards extends React.Component {
               cardRare={ cardRare }
               cardTrunfo={ cardTrunfo }
             />
+            <button
+              id={ cardName }
+              type="button"
+              onClick={ buttonDel }
+              data-testid="delete-button"
+            >
+              Excluir
+            </button>
           </section>
+
         );
         return result;
       })
@@ -40,6 +49,7 @@ CreateSavedCards.propTypes = {
     cardRare: PropTypes.string,
     hasTrunfo: PropTypes.bool,
   })).isRequired,
+  buttonDel: PropTypes.func.isRequired,
 };
 
 export default CreateSavedCards;
