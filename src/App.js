@@ -17,6 +17,7 @@ class App extends React.Component {
     isSaveButtonDisabled: true,
     savedCards: [],
     filtered: '',
+    rare: '',
   };
 
   validation = () => {
@@ -100,9 +101,24 @@ class App extends React.Component {
     }
   };
 
+  handlerare = ({ target }) => {
+    const { rare } = this.state;
+    const raridadeFiltrada = rare;
+    if (rare === raridadeFiltrada) {
+      if (target.value === 'todas') {
+        return this.setState(() => ({
+          rare: '',
+        }));
+      }
+      return this.setState(() => ({
+        rare: target.value,
+      }));
+    }
+  };
+
   render() {
     const { cardName, cardDescription, cardAttr1, cardAttr2, cardAttr3, cardImage,
-      cardRare, cardTrunfo, hasTrunfo,
+      cardRare, cardTrunfo, hasTrunfo, rare,
       isSaveButtonDisabled, savedCards, filtered } = this.state;
     return (
       <div>
@@ -132,11 +148,20 @@ class App extends React.Component {
           cardTrunfo={ cardTrunfo }
         />
         <input type="text" data-testid="name-filter" onChange={ this.handleChange } />
+        <label htmlFor="select">
+          <select data-testid="rare-filter" onChange={ this.handlerare }>
+            <option value="todas">todas</option>
+            <option value="normal">normal</option>
+            <option value="raro">raro</option>
+            <option value="muito raro">muito raro</option>
+          </select>
+        </label>
         <section>
           <CreateSavedCards
             savedCards={ savedCards }
             buttonDel={ this.buttonDel }
             filtered={ filtered }
+            rare={ rare }
           />
         </section>
       </div>
