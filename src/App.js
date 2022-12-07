@@ -18,6 +18,8 @@ class App extends React.Component {
     savedCards: [],
     filtered: '',
     rare: '',
+    disabledCheck: false,
+    filterTrunfo: '',
   };
 
   validation = () => {
@@ -116,9 +118,18 @@ class App extends React.Component {
     }
   };
 
+  hadleChecked = ({ target }) => {
+    const ifCheck = target.checked;
+    this.setState({ disabledCheck: ifCheck, rare: '', filtered: '' });
+    if (ifCheck) {
+      return this.setState({ filterTrunfo: 'true' });
+    }
+    return this.setState({ filterTrunfo: '' });
+  };
+
   render() {
     const { cardName, cardDescription, cardAttr1, cardAttr2, cardAttr3, cardImage,
-      cardRare, cardTrunfo, hasTrunfo, rare,
+      cardRare, cardTrunfo, hasTrunfo, rare, disabledCheck, filterTrunfo,
       isSaveButtonDisabled, savedCards, filtered } = this.state;
     return (
       <div>
@@ -147,14 +158,31 @@ class App extends React.Component {
           cardRare={ cardRare }
           cardTrunfo={ cardTrunfo }
         />
-        <input type="text" data-testid="name-filter" onChange={ this.handleChange } />
+        <input
+          type="text"
+          data-testid="name-filter"
+          onChange={ this.handleChange }
+          disabled={ disabledCheck }
+        />
         <label htmlFor="select">
-          <select data-testid="rare-filter" onChange={ this.handlerare }>
+          <select
+            data-testid="rare-filter"
+            onChange={ this.handlerare }
+            disabled={ disabledCheck }
+          >
             <option value="todas">todas</option>
             <option value="normal">normal</option>
             <option value="raro">raro</option>
             <option value="muito raro">muito raro</option>
           </select>
+        </label>
+        <label htmlFor="checkbox">
+          superTrunfo
+          <input
+            type="checkbox"
+            data-testid="trunfo-filter"
+            onChange={ this.hadleChecked }
+          />
         </label>
         <section>
           <CreateSavedCards
@@ -162,6 +190,7 @@ class App extends React.Component {
             buttonDel={ this.buttonDel }
             filtered={ filtered }
             rare={ rare }
+            filterTrunfo={ filterTrunfo }
           />
         </section>
       </div>

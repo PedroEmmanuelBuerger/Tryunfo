@@ -4,11 +4,17 @@ import Cardx from './Card';
 
 class CreateSavedCards extends React.Component {
   render() {
-    const { savedCards, buttonDel, filtered, rare } = this.props;
+    const { savedCards, buttonDel, filtered, rare, filterTrunfo } = this.props;
     return (
       savedCards
-        .filter((card) => card.cardName.includes(filtered))
         .filter((card) => card.cardRare.startsWith(rare))
+        .filter((card) => card.cardName.includes(filtered))
+        .filter((card) => {
+          if (filterTrunfo === 'true') {
+            return card.cardTrunfo;
+          }
+          return card;
+        })
         .map((element) => {
           const { cardAttr1, cardAttr2, cardAttr3, cardDescription,
             cardImage, cardName, cardRare, cardTrunfo } = element;
@@ -55,6 +61,7 @@ CreateSavedCards.propTypes = {
   buttonDel: PropTypes.func.isRequired,
   filtered: PropTypes.string.isRequired,
   rare: PropTypes.string.isRequired,
+  filterTrunfo: PropTypes.string.isRequired,
 };
 
 export default CreateSavedCards;
