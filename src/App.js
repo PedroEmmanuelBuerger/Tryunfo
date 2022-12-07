@@ -16,6 +16,7 @@ class App extends React.Component {
     hasTrunfo: false,
     isSaveButtonDisabled: true,
     savedCards: [],
+    filtered: '',
   };
 
   validation = () => {
@@ -90,10 +91,19 @@ class App extends React.Component {
     }
   };
 
+  handleChange = ({ target }) => {
+    const { filtered } = this.state;
+    const filtrado = filtered;
+    if (filtered === filtrado) {
+      const { value } = target;
+      this.setState(() => ({ filtered: value }));
+    }
+  };
+
   render() {
     const { cardName, cardDescription, cardAttr1, cardAttr2, cardAttr3, cardImage,
       cardRare, cardTrunfo, hasTrunfo,
-      isSaveButtonDisabled, savedCards } = this.state;
+      isSaveButtonDisabled, savedCards, filtered } = this.state;
     return (
       <div>
         <h1>Tryunfo</h1>
@@ -121,8 +131,13 @@ class App extends React.Component {
           cardRare={ cardRare }
           cardTrunfo={ cardTrunfo }
         />
+        <input type="text" data-testid="name-filter" onChange={ this.handleChange } />
         <section>
-          <CreateSavedCards savedCards={ savedCards } buttonDel={ this.buttonDel } />
+          <CreateSavedCards
+            savedCards={ savedCards }
+            buttonDel={ this.buttonDel }
+            filtered={ filtered }
+          />
         </section>
       </div>
     );
