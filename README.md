@@ -1,31 +1,29 @@
 # Tryunfo
-O Tryunfo é um projeto desenvolvido para simular o famoso jogo de cartas "Trunfo". O objetivo do jogo é comparar as cartas dos jogadores e determinar quem possui a maior pontuação em uma determinada categoria.
 
-## Funcionalidades
-O projeto possui as seguintes funcionalidades:
-- Criação de baralho: permite criar um baralho com diversas cartas, cada uma contendo informações e valores para diferentes categorias.
-- Filtrar a buscar por carta: poder buscar a carta que criou.
-- Criação de carta especifica dentro de um formulario: permite criar a propria carta por um formulario.
+Tryunfo is a project developed to simulate the famous card game "Trunfo." The goal of the game is to compare players' cards and determine who has the highest score in a given category.
 
-## Tecnologias Utilizadas
-O projeto foi desenvolvido utilizando as seguintes tecnologias:
-- JavaScript
-- HTML
-- CSS
-- React
-- Rooks
+## Features
 
+The project includes the following features:
 
-## Instalação
-Para jogar o Tryunfo localmente, siga os passos abaixo:
-1. Clone o repositório para sua máquina local:
-git clone https://github.com/PedroEmmanuelBuerger/project-Tryunfo.git
-2. Navegue até a pasta do projeto:
-cd project-Tryunfo
-3. rode o comando seguinte para rodar a aplicação: NPM START
+- **Deck Creation:** Allows creating a deck with various cards, each containing information and values for different categories.
+- **Search and Filter by Card:** Users can search for a specific card they have created.
+- **Create a Specific Card via Form:** Allows users to create their own cards through a form.
 
-## Principais Aprendizados
-Durante o desenvolvimento deste projeto, foram aplicados conceitos de programação JavaScript, manipulação do DOM (Document Object Model), componentização com react e estilização com CSS. Além disso, foi explorado o conceito de jogos de cartas e a lógica por trás da criação de cartas com um formulario.
+## Technologies Used
 
-## Conclusão
-O Tryunfo é uma simulação divertida do jogo de cartas "Trunfo". É uma ótima oportunidade para praticar e aprender sobre programação JavaScript, manipulação do DOM e lógica de jogos de cartas. Divirta-se jogando o Tryunfo e descubra quem possui as melhores cartas!
+The project was developed using the following technologies:
+
+- **JavaScript**
+- **HTML**
+- **CSS**
+- **React**
+- **Rooks**
+
+## Key Learnings
+
+During the development of this project, I applied concepts of JavaScript programming, DOM (Document Object Model) manipulation, componentization with React, and CSS styling. Additionally, I explored the concept of card games and the logic behind creating cards with a form.
+
+## Conclusion
+
+Tryunfo is a fun simulation of the "Trunfo" card game. It is a great opportunity to practice and learn JavaScript programming, DOM manipulation, and card game logic. Enjoy playing Tryunfo and see who has the best cards!
